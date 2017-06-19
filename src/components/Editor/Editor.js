@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 // Components
 import Textarea from 'react-textarea-autosize';
@@ -50,4 +51,8 @@ Editor.PropTypes = {
   onChange: PropTypes.func.isRequired
 }
 
-export default Editor;
+export default connect(state => {
+  return {
+    config: state.config
+  }
+})(Editor);
