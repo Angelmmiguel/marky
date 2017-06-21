@@ -1,8 +1,12 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 
 // Reducers
-import Config from './reducers/config';
+import config from './reducers/config';
 
 // Create the reducer
-const store = createStore(Config);
+const store = createStore(
+  combineReducers({
+    config
+  })
+);
 export default store;

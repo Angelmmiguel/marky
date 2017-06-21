@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 // Components
 import Textarea from 'react-textarea-autosize';
-import LineInfo from '../LineInfo';
 
 // Styles
 import './Editor.css';
@@ -22,6 +21,10 @@ class Editor extends React.Component {
     }
   }
 
+  get config() {
+    return this.props.config;
+  }
+
   onChange(e) {
     let value = e.target.value;
     this.setState({ text: value });
@@ -31,16 +34,22 @@ class Editor extends React.Component {
   }
 
   render() {
+    let style = {
+      lineHeight: this.config.lineHeight,
+      fontSize: `${this.config.fontSize}em`,
+      fontFamily: this.config.fontFamily,
+      minHeight: '80vh'
+    }
+
     return <section className="Editor mw7 center">
-      <div className="Editor__Line">
-        <LineInfo text={ this.state.text } offset={ 16 * 1.2 }/>
-      </div>
-      <div className="Editor__Input">
+      <div className="Editor__Input w-100">
         <Textarea
+          className="w-100 b--none"
           autoFocus="true"
-          style={ { lineHeight: '1.5em' } }
+          style={ style }
           value={ this.state.text }
-          onChange={ this.onChange } />
+          onChange={ this.onChange }
+          placeholder="Here you can write your next story" />
       </div>
     </section>;
   }

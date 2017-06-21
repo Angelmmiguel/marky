@@ -4,6 +4,7 @@ import actionNames from '../actions/actionNames';
 // Initial state of the config
 const initialState = {
   fontSize: 1.2,
+  fontFamily: 'Roboto, Arial',
   lineHeight: 1.5,
   layout: 'typewriter',
   theme: 'light'
