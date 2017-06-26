@@ -17,7 +17,7 @@ class Editor extends React.Component {
     this.onChange = this.onChange.bind(this);
 
     this.state = {
-      text: ''
+      text: props.initialText
     }
   }
 
@@ -37,19 +37,18 @@ class Editor extends React.Component {
     let style = {
       lineHeight: this.config.lineHeight,
       fontSize: `${this.config.fontSize}em`,
-      fontFamily: this.config.fontFamily,
-      minHeight: '80vh'
+      fontFamily: this.config.fontFamily
     }
 
     return <section className="Editor mw7 center">
       <div className="Editor__Input w-100">
         <Textarea
-          className="w-100 b--none"
+          className="w-100 b--none mousetrap"
           autoFocus="true"
           style={ style }
           value={ this.state.text }
           onChange={ this.onChange }
-          placeholder="Here you can write your next story" />
+          placeholder="Here you can write your next story 😄" />
       </div>
     </section>;
   }
@@ -57,7 +56,8 @@ class Editor extends React.Component {
 
 // Props!
 Editor.PropTypes = {
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  initialText: PropTypes.string.isRequired
 }
 
 export default connect(state => {

@@ -3,6 +3,8 @@
 
     textarea {
       resize: none;
+      min-height: 80vh;
+      color: #444;
 
       &:focus {
         outline: none;

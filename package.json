@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "mousetrap": "^1.6.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
@@ -10,7 +11,8 @@
     "redux": "^3.7.0",
     "remark": "^7.0.1",
     "remark-preset-lint-markdown-style-guide": "^1.0.0",
-    "remark-react": "^4.0.0"
+    "remark-react": "^4.0.0",
+    "remark-react-lowlight": "Angelmmiguel/remark-react-lowlight#master"
   },
   "devDependencies": {
     "node-sass-chokidar": "^0.0.3",
