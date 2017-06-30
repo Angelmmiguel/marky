@@ -4,6 +4,7 @@ import Mousetrap from 'mousetrap';
 // Components
 import Editor from '../../components/Editor';
 import Preview from '../../components/Preview';
+import Stats from '../../components/Stats';
 
 // Styles
 import './Typewriter.css';
@@ -54,6 +55,7 @@ class Typewriter extends React.Component {
 
   render() {
     return <section className="Typewriter">
+      <Stats text={ this.state.text } />
       { this.renderView() }
     </section>
   }

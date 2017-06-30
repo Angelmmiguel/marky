@@ -12,7 +12,8 @@
     "remark": "^7.0.1",
     "remark-preset-lint-markdown-style-guide": "^1.0.0",
     "remark-react": "^4.0.0",
-    "remark-react-lowlight": "Angelmmiguel/remark-react-lowlight#master"
+    "remark-react-lowlight": "Angelmmiguel/remark-react-lowlight#master",
+    "remove-markdown": "^0.2.0"
   },
   "devDependencies": {
     "node-sass-chokidar": "^0.0.3",
