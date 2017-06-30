@@ -8,6 +8,9 @@ import Textarea from 'react-textarea-autosize';
 // Styles
 import './Editor.css';
 
+// Constants
+const TAB_KEY_CODE = 9;
+
 class Editor extends React.Component {
 
   constructor(props) {
@@ -15,6 +18,7 @@ class Editor extends React.Component {
 
     // Binds
     this.onChange = this.onChange.bind(this);
+    this.onKeyDown = this.onKeyDown.bind(this);
 
     this.state = {
       text: props.initialText
@@ -33,6 +37,23 @@ class Editor extends React.Component {
     this.props.onChange(value);
   }
 
+  onKeyDown(e) {
+    if (e.keyCode !== TAB_KEY_CODE) {
+      return;
+    }
+
+    // Add a tab to the textarea
+    e.preventDefault();
+    e.stopPropagation();
+
+    let start = this.textarea.selectionStart;
+    let newValue = this.state.text.substring(0, start) + '  ' + this.state.text.substring(start);
+
+    this.setState({
+      text: newValue
+    });
+  }
+
   render() {
     let style = {
       lineHeight: this.config.lineHeight,
@@ -45,9 +66,11 @@ class Editor extends React.Component {
         <Textarea
           className="w-100 b--none mousetrap"
           autoFocus="true"
+          inputRef={ (textarea) => { this.textarea = textarea; } }
           style={ style }
           value={ this.state.text }
           onChange={ this.onChange }
+          onKeyDown={ this.onKeyDown }
           placeholder="Here you can write your next story 😄" />
       </div>
     </section>;
